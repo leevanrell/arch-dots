@@ -130,6 +130,12 @@ sudo useradd -m -g users -G wheel lee -s /bin/zsh
 passwd lee
 ```
 
+Uncomment:
+```
+  %wheel ALL=(ALL_ ALL
+```
+In /etc/sudoers file
+
 ### Misc
 
 ```bash
@@ -155,25 +161,19 @@ sudo pacman Syu
 ```
 
 
-### Update
-```bash
-sudo pacman Syu
-
-```
-
-
 ### Desktop Environment
 ```bash
 sudo pacman -S xorg-server xorg-xinit xorg-utils xorg-server-utils 
 sudo pacman -S xf86-input-synaptics
-sudo pacman -S cinnamon nemo-fileroller gmd net-tools network-manager-applet
+sudo pacman -S gdm
 sudo systemctl start NetworkManager gdm
 sudo systemctl enable NetworkManager gdm
+sudo pacman -S i3 dmenu terminator
 ```
 
 ### Programs
 ```bash
-sudo pacman -S pulseaudio pulseaudio-alsa pavucontrol gnome-terminal firefox flashplugin vlc chromium unzip unrar p7zip smplayer audacious qmmp gimp xfburn thunderbird gedit gnome-system-monitor
+sudo pacman -S pulseaudio pulseaudio-alsa pavucontrol gnome-terminal firefox flashplugin vlc chromium unzip unrar p7zip smplayer audacious qmmp gimp xfburn thunderbird gedit gnome-system-monitor vlc
 sudo pacman -S a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libtheora libvorbis libxv wavpack x264 xvidcore gstreamer0.10-plugins
 sudo pacman -S libreoffice
 ```
@@ -190,6 +190,12 @@ echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.
 
 ```
 
+Sublime:
+```bash
+curl -O https://download.sublimetext.com/sublimehq-pub.gpg && sudo pacman-key --add sublimehq-pub.gpg && sudo pacman-key --lsign-key 8A8F901A && rm sublimehq-pub.gpg
+echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | sudo tee -a /etc/pacman.conf
+sudo pacman -Syu sublime-text
+```
 
 
 - [Arch Linux Wiki: Beginners Guide](https://wiki.archlinux.org/index.php/beginners'_guide#GRUB_2)
